@@ -1,7 +1,8 @@
+import 'package:chek_me/src/view/calendar_screen.dart';
 import 'package:chek_me/src/view/common/my_button.dart';
+import 'package:chek_me/src/view/list_screen.dart';
+import 'package:chek_me/src/view/image_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -28,19 +29,36 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               MyButton(
                 size: size,
-                callback: () {},
+                callback: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const ImageScreen();
+                      },
+                    ),
+                  );
+                },
                 icon: Icons.document_scanner_outlined,
                 text: 'Scan',
               ),
               MyButton(
                 size: size,
-                callback: () {},
+                callback: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const ListScreen()),
+                  );
+                },
                 icon: Icons.backup_table_sharp,
                 text: 'My checks',
               ),
               MyButton(
                 size: size,
-                callback: () {},
+                callback: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) => const CalendarScreen()),
+                  );
+                },
                 icon: Icons.calendar_month,
                 text: 'Calendar',
               ),
@@ -60,9 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.all(size.height * 0.1),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ListView(
-
-                    ),
+                    child: ListView(),
                   ),
                 ),
               ),
